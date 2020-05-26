@@ -1,0 +1,90 @@
+body {
+    padding: 0px;
+    margin: 0px;
+}
+
+.bg-modal {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgb(0,0,0,.8);
+    display: none;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.noteForm {
+    text-align:center;
+    width: 330px;
+    background: grey;
+    margin: 100px auto;
+    padding: 20px;
+}
+
+
+
+#noteTitle {
+    width: 100%;
+    height: 2rem;
+
+}
+
+.detailWrapper {
+    display: flex;
+    justify-content: space-around;
+}
+
+#noteDueDate {
+width: 100px;
+
+}
+
+#notePriority {
+    width: 100px;
+
+
+}
+
+#noteDescrip {
+    width: 100%;
+    height: 4rem;
+}
+
+
+ul {
+    list-style: none;
+}
+
+
+.submitNote {
+    padding: 20px;
+}
+
+.note {
+    background: yellow;
+    display: flex;
+    width: 200px;
+}
+
+.noteForm {
+    display: none;
+}
+
+.projectForm {
+    display: none;
+}
+
+
+.noteDiv {
+width: 400px;
+background: yellow;
+
+}
+
+.projectTitleInput {
+    display: "block";
+}
+
