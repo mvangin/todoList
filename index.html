@@ -6,9 +6,43 @@
 </head>
 
 <body>
-<form>
+    <button class="newNoteButton"> Add New Note </button>
+    <button class="newProjectButton"> Add New Project </button>
 
-</form>
+
+
+    <div class="contentWrapper">
+        <div class="projectSideBar">
+
+        </div>
+
+        <div class="noteDiv">
+
+
+        </div>
+
+    </div>
+
+    <div class="bg-modal">
+
+        <div class="projectTitleInput projectForm">
+            <input type="text" placeholder="Title" required>
+            <input type="submit">
+        </div>
+
+        <form class="noteForm">
+            <div> Title <br> <input id="noteTitle" class="noteInput" type="text" required> </div>
+            <div class="detailWrapper">
+                <div> dueDate <br><input id="noteDueDate" class="noteInput" type="text"> </div>
+                <div> priority <br> <input id="notePriority" input class="noteInput" type="text"> </div>
+            </div>
+            <div> Description <br><input id="noteDescrip" class="noteInput" type="text"> </div>
+            <div><input id="submitNote" type="submit"> </div>
+        </form>
+    </div>
+
+
+
 </body>
 
 <script src="main.js"></script>
