@@ -3,7 +3,7 @@ body {
     margin: 0px;
 }
 
-.bg-modal {
+.bg-modalNotes {
     top: 0;
     left: 0;
     width: 100%;
@@ -14,6 +14,19 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+.bg-modalProjects {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgb(0,0,0,.8);
+    display: none;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+}
+
 
 
 .noteForm {
@@ -86,5 +99,6 @@ background: yellow;
 
 .projectTitleInput {
     display: "block";
+    padding: 1rem;
 }
 
