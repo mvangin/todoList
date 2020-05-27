@@ -1,3 +1,6 @@
+import CreateNote from "./CreateNote.js";
+import clearForm from "./clearForm.js";
+
 const submitNote = document.querySelector("#submitNote");
 const noteTitle = document.querySelector("#noteTitle");
 const noteDescrip = document.querySelector("#noteDescrip");
@@ -7,73 +10,44 @@ const noteChecked = document.querySelector("#noteChecked");
 
 const body = document.querySelector("body");
 const noteForm = document.querySelector(".noteForm");
-const bgModal = document.querySelector(".bg-modal");
+const bgModalNotes = document.querySelector(".bg-modalNotes");
 const newNoteButton = document.querySelector(".newNoteButton");
 
-let defaultProject = [];
 
-let projectID = 0;
-function Note(title, descrip = "", dueDate = "", priority = "none") {
-    projectID++;
 
-    const lastID = () => {
-        return lastID;
-    }
-    return { title, descrip, dueDate, priority, projectID }
-}
-
-function noteSubmitted() {
-    return Note(noteTitle.value, noteDescrip.value, noteDueDate.value, notePriority.value);
-}
 
 newNoteButton.addEventListener("click", () => {
-    bgModal.style.display = "flex";
+    bgModalNotes.style.display = "flex";
     noteForm.style.display = "block";
 })
 
 
 submitNote.addEventListener("click", (e) => {
     e.preventDefault();
-    lastNote = createNote();
-    displayNote(lastNote);
+    CreateNote();
     clearForm();
-    removeForm();
 });
 
-function createNote() {
-    const note = Note(noteTitle.value, noteDescrip.value, noteDueDate.value, notePriority.value);
-    defaultProject.push(note);
-    return (note)
-}
 
-function displayNote(note) {
-    const noteWrapper = document.createElement("div");
-    const title = document.createElement('p');
-    const dueDate = document.createElement('p');
-    const priority = document.createElement('p');
-    const noteDiv = document.querySelector(".noteDiv");
+const newProjectButton = document.querySelector(".newProjectButton");
+const projectForm = document.querySelector(".projectForm");
+const bgModalProjects = document.querySelector(".bg-modalProjects");
 
 
-    title.textContent = note.title;
-    dueDate.textContent = note.dueDate;
-    priority.textContent = note.priority;
+newProjectButton.addEventListener("click", () => {
+    bgModalProjects.style.display = "flex";
+    projectForm.style.display = "block";
+})
 
-    noteWrapper.appendChild(title);
-    noteWrapper.appendChild(dueDate);
-    noteWrapper.appendChild(priority);
-    noteDiv.appendChild(noteWrapper);
-}
+const submitProject = document.querySelector("#submitProject");
 
-function clearForm() {
-    noteTitle.value = "";
-    noteDescrip.value = "";
-    noteDueDate.value = "";
-    notePriority.value = "";
-}
+submitProject.addEventListener("click", (e) => {
+    e.preventDefault();
+    removeProjectForm()
+});
 
-function removeForm() {
+function removeProjectForm() {
     //noteForm.style.display = "none";
-    bgModal.style.display = "none";
-    noteForm.style.display = "none";
-
+    bgModalProjects.style.display = "none";
+    projectForm.style.display = "none";
 }
