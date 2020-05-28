@@ -75,7 +75,7 @@ ul {
     padding: 20px;
 }
 
-.note {
+.newNote {
     background: yellow;
     display: flex;
     width: 200px;
@@ -102,7 +102,7 @@ ul {
 }
 
 .projectSideBar{
- background: red;
+ background: rgba(202, 103, 46, 0.61);
  width: 30%;
  border-right: 10px solid grey;
  height: 500px;
@@ -112,7 +112,7 @@ ul {
 
 .noteWrapper {
 padding: 10px;
- background: blue;
+ background: rgba(38, 38, 224, 0.61);
  width: 70%;
  margin:5px;
 }
