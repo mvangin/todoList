@@ -35,7 +35,7 @@ const CreateNote = () => {
     }
 
     function displayNote(note) {
-        const noteWrapper = document.createElement("div");
+        const newNote = document.createElement("div");
         const title = document.createElement('p');
         const dueDate = document.createElement('p');
         const priority = document.createElement('p');
@@ -46,10 +46,11 @@ const CreateNote = () => {
         dueDate.textContent = note.dueDate;
         priority.textContent = note.priority;
 
-        noteWrapper.appendChild(title);
-        noteWrapper.appendChild(dueDate);
-        noteWrapper.appendChild(priority);
-        noteDiv.appendChild(noteWrapper);
+        newNote.appendChild(title);
+        newNote.appendChild(dueDate);
+        newNote.appendChild(priority);
+        newNote.classList.add("newNote");
+        noteDiv.appendChild(newNote);
     }
 
 
