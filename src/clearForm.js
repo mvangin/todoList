@@ -14,8 +14,6 @@ const clearForm = () => {
     noteDescrip.value = "";
     noteDueDate.value = "";
     notePriority.value = "";
-
-
 } 
 
 export default clearForm;

@@ -48,13 +48,6 @@ const CreateNote = () => {
         noteDiv.appendChild(noteWrapper);
     }
 
-    function clearForm() {
-        noteTitle.value = "";
-        noteDescrip.value = "";
-        noteDueDate.value = "";
-        notePriority.value = "";
-    }
-
     function removeForm() {
         //noteForm.style.display = "none";
         bgModal.style.display = "none";

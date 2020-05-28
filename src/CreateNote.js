@@ -13,14 +13,15 @@ const CreateNote = () => {
     let defaultProject = [];
 
 
+    let noteID = 0;
     let projectID = 0;
-    function Note(title, descrip = "", dueDate = "", priority = "none") {
-        projectID++;
 
+    function Note(title, descrip = "", dueDate = "", priority = "none") {
+        noteID++;
         const lastID = () => {
             return lastID;
         }
-        return { title, descrip, dueDate, priority, projectID }
+        return { title, descrip, dueDate, priority, projectID: noteID }
     }
 
     function noteSubmitted() {

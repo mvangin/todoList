@@ -6,17 +6,21 @@
 </head>
 
 <body>
-    <button class="newNoteButton"> Add New Note </button>
-    <button class="newProjectButton"> Add New Project </button>
 
 
 
     <div class="contentWrapper">
         <div class="projectSideBar">
+            <button class="newProjectButton"> Add New Project </button>
 
         </div>
 
-        <div class="noteDiv">
+        <div class="noteWrapper">
+            <button class="newNoteButton"> Add New Note </button>
+            <div class="noteDiv">
+
+            </div>
+
 
 
         </div>
@@ -27,7 +31,7 @@
 
         <div class="projectForm">
             <input class="projectTitleInput" type="text" placeholder="Project Title" required>
-            <input class="projectTitleInput" id="submitProject" type="submit">
+            <input class="projectTitleSubmit" id="submitProject" type="submit">
         </div>
 
     </div>
@@ -37,7 +41,7 @@
         <form class="noteForm">
             <div> Title <br> <input id="noteTitle" class="noteInput" type="text" required> </div>
             <div class="detailWrapper">
-                <div> dueDate <br><input id="noteDueDate" class="noteInput" type="text"> </div>
+                <div> Due Date <br><input id="noteDueDate" class="noteInput" type="date"> </div>
                 <div> priority <br> <input id="notePriority" input class="noteInput" type="text"> </div>
             </div>
             <div> Description <br><input id="noteDescrip" class="noteInput" type="text"> </div>

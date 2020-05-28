@@ -1,5 +1,6 @@
 import CreateNote from "./CreateNote.js";
 import clearForm from "./clearForm.js";
+import {getProjects, newProject, addProject} from  "./CreateProject.js";
 
 const submitNote = document.querySelector("#submitNote");
 const noteTitle = document.querySelector("#noteTitle");
@@ -21,7 +22,6 @@ newNoteButton.addEventListener("click", () => {
     noteForm.style.display = "block";
 })
 
-
 submitNote.addEventListener("click", (e) => {
     e.preventDefault();
     CreateNote();
@@ -29,9 +29,13 @@ submitNote.addEventListener("click", (e) => {
 });
 
 
+
 const newProjectButton = document.querySelector(".newProjectButton");
 const projectForm = document.querySelector(".projectForm");
 const bgModalProjects = document.querySelector(".bg-modalProjects");
+const projectTitleInput = document.querySelector(".projectTitleInput");
+
+
 
 
 newProjectButton.addEventListener("click", () => {
@@ -43,6 +47,9 @@ const submitProject = document.querySelector("#submitProject");
 
 submitProject.addEventListener("click", (e) => {
     e.preventDefault();
+    const project = newProject(projectTitleInput.value);
+    addProject(project);
+    clearProject();
     removeProjectForm()
 });
 
@@ -51,3 +58,8 @@ function removeProjectForm() {
     bgModalProjects.style.display = "none";
     projectForm.style.display = "none";
 }
+
+function clearProject(){
+    projectTitleInput.value = "";
+}
+
