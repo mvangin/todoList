@@ -78,8 +78,22 @@ ul {
 .newNote {
     background: yellow;
     display: flex;
-    width: 200px;
+    width: 300px;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+    margin: 10px;
 }
+
+.newProject {
+    background: yellow;
+    width: 150px;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+    margin: 10px;
+}
+
 
 .noteForm {
     display: none;
@@ -115,4 +129,8 @@ padding: 10px;
  background: rgba(38, 38, 224, 0.61);
  width: 70%;
  margin:5px;
+}
+
+.noteContentTitle {
+    max-width: 200px;
 }
