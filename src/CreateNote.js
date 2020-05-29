@@ -1,3 +1,5 @@
+import {getCurrentProjectID, addToDo} from  "./CreateProject.js";
+
 const CreateNote = () => {
     const submitNote = document.querySelector("#submitNote");
     const noteTitle = document.querySelector("#noteTitle");
@@ -10,7 +12,6 @@ const CreateNote = () => {
     const bgModalNotes = document.querySelector(".bg-modalNotes");
     const newNoteButton = document.querySelector(".newNoteButton");
 
-    let defaultProject = [];
 
 
     let noteID = 0;
@@ -24,31 +25,24 @@ const CreateNote = () => {
         return { title, descrip, dueDate, priority, projectID: noteID }
     }
 
-    function noteSubmitted() {
-        return Note(noteTitle.value, noteDescrip.value, noteDueDate.value, notePriority.value);
-    }
-
     function createNote() {
         const note = Note(noteTitle.value, noteDescrip.value, noteDueDate.value, notePriority.value);
-        defaultProject.push(note);
         return (note)
     }
 
     function displayNote(note) {
         const newNote = document.createElement("div");
-        const title = document.createElement('p');
-        const dueDate = document.createElement('p');
-        const priority = document.createElement('p');
+        const title = document.createElement('div');
+        const dueDate = document.createElement('div');
         const noteDiv = document.querySelector(".noteDiv");
 
 
         title.textContent = note.title;
+        title.classList.add("noteContentTitle");
         dueDate.textContent = note.dueDate;
-        priority.textContent = note.priority;
 
         newNote.appendChild(title);
         newNote.appendChild(dueDate);
-        newNote.appendChild(priority);
         newNote.classList.add("newNote");
         noteDiv.appendChild(newNote);
     }
@@ -60,10 +54,10 @@ const CreateNote = () => {
         noteForm.style.display = "none";
     }
 
-    const lastNote = createNote();
-    displayNote(lastNote);
+    const newNote = createNote();
+    displayNote(newNote);
+    addToDo(newNote);
     removeForm();
-
         
 }
 

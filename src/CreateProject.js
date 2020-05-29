@@ -1,31 +1,53 @@
+let projectID = 0;
+let projectLibrary = [];
+let currentProjectID = 1;
+let defaultProject = newProject("defaultProject");
+addProject(defaultProject) 
 
 
 
-    const submitNote = document.querySelector("#submitNote");
-    const noteTitle = document.querySelector("#noteTitle");
-    const noteDescrip = document.querySelector("#noteDescrip");
-    const noteDueDate = document.querySelector("#noteDueDate");
-    const notePriority = document.querySelector("#notePriority");
-    const noteChecked = document.querySelector("#noteChecked");
-    const body = document.querySelector("body");
-    const noteForm = document.querySelector(".noteForm");
-    const bgModalNotes = document.querySelector(".bg-modalNotes");
-    const newNoteButton = document.querySelector(".newNoteButton");
-    const projectTitleInput = document.querySelector(".projectTitleInput");
+const projectDiv = document.querySelector(".projectDiv");
+const getProjects = () => { return projectLibrary };
 
+function setCurrentProject(projectID) {
+    currentProjectID = projectID;
+}
 
-    let projectID = 0;
-    let projectLibrary = [];
+function addToDo (newToDo) {
+    let currentID = getCurrentProjectID();
+    projectLibrary.forEach(item => {
+        if (item.projectID == currentID){
+            item.toDo.push(newToDo)
+            console.log(item);
 
-    const getProjects = () => {return projectLibrary};
+        }
+    })
+}
 
-    function newProject(projectTitle) {
-        projectID++;
-        return { projectTitle, projectID };
-    }
+function getCurrentProjectID(){
+    return currentProjectID;
+}
 
-    function addProject(currentProject) {
-        projectLibrary.push(currentProject);
-    }
+function newProject(projectTitle) {
+    projectID++;
+    let toDo = [];
+    return { projectTitle, projectID, toDo };
+}
 
-export {getProjects, newProject, addProject};
+function addProject(currentProject) {
+    projectLibrary.push(currentProject);
+    console.log(projectLibrary);
+}
+
+function displayProject(project) {
+    projectDiv.textContent = "";
+    projectLibrary.forEach(item => {
+        const itemDiv = document.createElement("div");
+        itemDiv.textContent = item.projectTitle;
+        itemDiv.classList.add("newProject");
+        projectDiv.appendChild(itemDiv);
+
+    })
+}
+
+export { getProjects, newProject, addProject, addToDo, setCurrentProject, getCurrentProjectID, displayProject};

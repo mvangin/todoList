@@ -1,6 +1,6 @@
 import CreateNote from "./CreateNote.js";
 import clearForm from "./clearForm.js";
-import {getProjects, newProject, addProject} from  "./CreateProject.js";
+import { getProjects, newProject, addProject, addToDo, setCurrentProject, getCurrentProject, displayProject} from  "./CreateProject.js";
 
 const submitNote = document.querySelector("#submitNote");
 const noteTitle = document.querySelector("#noteTitle");
@@ -49,6 +49,8 @@ submitProject.addEventListener("click", (e) => {
     e.preventDefault();
     const project = newProject(projectTitleInput.value);
     addProject(project);
+    setCurrentProject(0);
+    displayProject();
     clearProject();
     removeProjectForm()
 });
