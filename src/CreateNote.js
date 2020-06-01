@@ -1,4 +1,4 @@
-import {getCurrentProjectID, addToDo} from  "./CreateProject.js";
+import {addToDo, getCurrentProject} from  "./CreateProject.js";
 
 const CreateNote = () => {
     const submitNote = document.querySelector("#submitNote");
@@ -15,14 +15,16 @@ const CreateNote = () => {
 
 
     let noteID = 0;
-    let projectID = 0;
+
+
 
     function Note(title, descrip = "", dueDate = "", priority = "none") {
         noteID++;
+        let projectID = getCurrentProject();
         const lastID = () => {
             return lastID;
         }
-        return { title, descrip, dueDate, priority, projectID: noteID }
+        return { title, descrip, dueDate, priority, projectID}
     }
 
     function createNote() {

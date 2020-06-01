@@ -15,8 +15,6 @@ const bgModalNotes = document.querySelector(".bg-modalNotes");
 const newNoteButton = document.querySelector(".newNoteButton");
 
 
-
-
 newNoteButton.addEventListener("click", () => {
     bgModalNotes.style.display = "flex";
     noteForm.style.display = "block";
@@ -24,6 +22,7 @@ newNoteButton.addEventListener("click", () => {
 
 submitNote.addEventListener("click", (e) => {
     e.preventDefault();
+    // add if requiredFields= true then do the bottom. otherwise do nothing...
     CreateNote();
     clearForm();
 });
@@ -49,8 +48,7 @@ submitProject.addEventListener("click", (e) => {
     e.preventDefault();
     const project = newProject(projectTitleInput.value);
     addProject(project);
-    setCurrentProject(0);
-    displayProject();
+    displayProject(project);
     clearProject();
     removeProjectForm()
 });

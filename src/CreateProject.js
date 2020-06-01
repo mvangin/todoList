@@ -1,32 +1,41 @@
 let projectID = 0;
 let projectLibrary = [];
-let currentProjectID = 1;
-let defaultProject = newProject("defaultProject");
-addProject(defaultProject) 
+let currentProject;
+
+function initialProject() {
+    let defaultProject = newProject("Default_project");
+    addProject(defaultProject)
+    displayProject(defaultProject);
+    setCurrentProject(1);
+}
+
+initialProject();
 
 
 
 const projectDiv = document.querySelector(".projectDiv");
 const getProjects = () => { return projectLibrary };
 
+
 function setCurrentProject(projectID) {
-    currentProjectID = projectID;
+    currentProject = projectID;
 }
 
-function addToDo (newToDo) {
-    let currentID = getCurrentProjectID();
+function getCurrentProject() {
+    return currentProject;
+}
+
+
+
+function addToDo(newToDo, currentProjectID) {
     projectLibrary.forEach(item => {
-        if (item.projectID == currentID){
+        if (item.projectID == getCurrentProject()) {
             item.toDo.push(newToDo)
-            console.log(item);
 
         }
     })
 }
 
-function getCurrentProjectID(){
-    return currentProjectID;
-}
 
 function newProject(projectTitle) {
     projectID++;
@@ -40,14 +49,25 @@ function addProject(currentProject) {
 }
 
 function displayProject(project) {
-    projectDiv.textContent = "";
-    projectLibrary.forEach(item => {
-        const itemDiv = document.createElement("div");
-        itemDiv.textContent = item.projectTitle;
-        itemDiv.classList.add("newProject");
-        projectDiv.appendChild(itemDiv);
+    const projectDiv = document.querySelector(".projectDiv");
+    const itemDiv = document.createElement("div");
+    itemDiv.textContent = project.projectTitle;
+    itemDiv.classList.add("newProject");
+    itemDiv.dataset.projectID = projectID;
+    projectDiv.appendChild(itemDiv);
 
-    })
+    itemDiv.addEventListener("click", () => {
+
+        const projDivs = document.querySelectorAll(".newProject");
+
+        projDivs.forEach(item => {
+            item.style.background = "yellow";
+        })
+        setCurrentProject(project.projectID);
+        itemDiv.style.background = "red";
+    });
+
 }
 
-export { getProjects, newProject, addProject, addToDo, setCurrentProject, getCurrentProjectID, displayProject};
+
+export { getProjects, newProject, addProject, addToDo, displayProject , getCurrentProject};
