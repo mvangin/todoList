@@ -11,14 +11,14 @@
 
     <div class="contentWrapper">
         <div class="projectSideBar">
-            <button class="newProjectButton"> Add New Project </button>
+            <button class="newProjectButton"> New Project </button>
             <div class="projectDiv">
 
             </div>
         </div>
 
         <div class="noteWrapper">
-            <button class="newNoteButton"> Add New Note </button>
+            <button class="newNoteButton"> New Note </button>
             <div class="noteDiv">
 
             </div>
@@ -33,7 +33,11 @@
 
         <div class="projectForm">
             <input class="projectTitleInput" type="text" placeholder="Project Title" required>
-            <input class="projectTitleSubmit" id="submitProject" type="submit">
+            <div class="projectButtonWrapper">
+                <input class="projectTitleSubmit" id="submitProject" type="submit">
+                <button id="cancelProject"> Cancel </button>
+            </div>
+
         </div>
 
     </div>
@@ -47,7 +51,11 @@
                 <div> priority <br> <input id="notePriority" input class="noteInput" type="text"> </div>
             </div>
             <div> Description <br><input id="noteDescrip" class="noteInput" type="text"> </div>
-            <div><input id="submitNote" type="submit"> </div>
+            <div class="noteButtonWrapper">
+                <input id="submitNote" type="submit">
+                <button id="cancelNote"> Cancel </button>
+            </div>
+
         </form>
     </div>
 

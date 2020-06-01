@@ -86,12 +86,12 @@ ul {
 }
 
 .newProject {
-    background: yellow;
     width: 150px;
     justify-content: space-between;
     align-items: flex-start;
     padding: 20px;
     margin: 10px;
+    margin-left: 20px;
 }
 
 
@@ -104,11 +104,10 @@ ul {
 }
 
 
-
-
 .projectTitleInput {
     display: "block";
-    padding: 1rem;
+    padding: 1.5rem;
+    font-size: 2rem;
 }
 
 .contentWrapper {
@@ -116,21 +115,69 @@ ul {
 }
 
 .projectSideBar{
- background: rgba(202, 103, 46, 0.61);
- width: 30%;
+ width: 20%;
+ min-width: 250px;
  border-right: 10px solid grey;
- height: 500px;
- padding: 10px;
- margin: 5px;
+ height: 100vh;
+
 }
 
 .noteWrapper {
-padding: 10px;
  background: rgba(38, 38, 224, 0.61);
- width: 70%;
- margin:5px;
+ width: 80%;
+ height: 100vh;
 }
 
 .noteContentTitle {
     max-width: 200px;
+}
+
+.newProjectButton {
+    background: rgb(245, 241, 241);
+    width: 200px;
+    margin: 20px 20px;
+    padding: 10px;
+    border: 2px solid rgb(153, 152, 152);
+    border-radius: 10px;
+    font-size: 1.3rem;
+
+}
+
+.newNoteButton {
+    background: rgb(245, 241, 241);
+    width: 200px;
+    margin: 20px 20px;
+    padding: 10px;
+    border: 2px solid rgb(153, 152, 152);
+    border-radius: 10px;
+    font-size: 1.3rem;
+}
+
+.projectButtonWrapper {
+width: 300px;
+margin: 20px auto;
+text-align: center;
+}
+
+
+
+.notesButtons {
+padding: 20px;
+
+}
+
+#submitProject {
+    padding: 20px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    font-size: 1.5rem;
+}
+
+
+#cancelProject {
+    padding: 20px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    font-size: 1.5rem;
+
 }
