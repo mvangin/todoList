@@ -1,8 +1,10 @@
-import CreateNote from "./CreateNote.js";
+import { requiredFields, removeForm, createNote } from "./CreateNote.js";
 import clearForm from "./clearForm.js";
-import { getProjects, newProject, addProject, addToDo, setCurrentProject, getCurrentProject, displayProject} from  "./CreateProject.js";
+import { getProjects, newProject, addProject, addToDo, setCurrentProject, getCurrentProject, displayProject, displayNotes, requiredProjFields} from "./CreateProject.js";
 
 const submitNote = document.querySelector("#submitNote");
+const cancelNote = document.querySelector("#cancelNote");
+
 const noteTitle = document.querySelector("#noteTitle");
 const noteDescrip = document.querySelector("#noteDescrip");
 const noteDueDate = document.querySelector("#noteDueDate");
@@ -20,11 +22,24 @@ newNoteButton.addEventListener("click", () => {
     noteForm.style.display = "block";
 })
 
+cancelNote.addEventListener("click", (e) => {
+    removeForm();
+    clearForm();
+});
+
 submitNote.addEventListener("click", (e) => {
     e.preventDefault();
     // add if requiredFields= true then do the bottom. otherwise do nothing...
-    CreateNote();
-    clearForm();
+    if (requiredFields()) {
+        const newNote = createNote();
+        //displayNote(newNote);
+        addToDo(newNote);
+        displayNotes(getCurrentProject());
+        removeForm();
+        clearForm();
+    } else {
+        alert("no note for you");
+    }
 });
 
 
@@ -33,6 +48,10 @@ const newProjectButton = document.querySelector(".newProjectButton");
 const projectForm = document.querySelector(".projectForm");
 const bgModalProjects = document.querySelector(".bg-modalProjects");
 const projectTitleInput = document.querySelector(".projectTitleInput");
+const submitProject = document.querySelector("#submitProject");
+const cancelProject = document.querySelector("#cancelProject");
+
+
 
 
 
@@ -42,15 +61,23 @@ newProjectButton.addEventListener("click", () => {
     projectForm.style.display = "block";
 })
 
-const submitProject = document.querySelector("#submitProject");
 
 submitProject.addEventListener("click", (e) => {
     e.preventDefault();
-    const project = newProject(projectTitleInput.value);
-    addProject(project);
-    displayProject(project);
+    if (requiredProjFields(projectTitleInput.value)) {
+        const project = newProject(projectTitleInput.value);
+        addProject(project);
+        displayProject(project);
+        clearProject();
+        removeProjectForm()
+    } else {
+        return alert("no project for you")
+    }
+});
+
+cancelProject.addEventListener("click", (e) => {
     clearProject();
-    removeProjectForm()
+    removeProjectForm();
 });
 
 function removeProjectForm() {
@@ -59,7 +86,7 @@ function removeProjectForm() {
     projectForm.style.display = "none";
 }
 
-function clearProject(){
+function clearProject() {
     projectTitleInput.value = "";
 }
 

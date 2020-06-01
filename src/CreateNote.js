@@ -1,6 +1,6 @@
-import {addToDo, getCurrentProject} from  "./CreateProject.js";
+import {addToDo, getCurrentProject, displayNotes} from  "./CreateProject.js";
 
-const CreateNote = () => {
+
     const submitNote = document.querySelector("#submitNote");
     const noteTitle = document.querySelector("#noteTitle");
     const noteDescrip = document.querySelector("#noteDescrip");
@@ -32,7 +32,7 @@ const CreateNote = () => {
         return (note)
     }
 
-    function displayNote(note) {
+    /* function displayNote(note) {
         const newNote = document.createElement("div");
         const title = document.createElement('div');
         const dueDate = document.createElement('div');
@@ -48,6 +48,7 @@ const CreateNote = () => {
         newNote.classList.add("newNote");
         noteDiv.appendChild(newNote);
     }
+    */
 
 
     function removeForm() {
@@ -56,11 +57,14 @@ const CreateNote = () => {
         noteForm.style.display = "none";
     }
 
-    const newNote = createNote();
-    displayNote(newNote);
-    addToDo(newNote);
-    removeForm();
+    function requiredFields(){
+        if (noteTitle.value=="") {
+            return false;
+        } else {
+            return true;
+        }
+    }
         
-}
 
-export default CreateNote;
+
+export  {createNote, removeForm, requiredFields };
