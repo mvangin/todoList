@@ -57,14 +57,15 @@ import {addToDo, getCurrentProject, displayNotes} from  "./CreateProject.js";
         noteForm.style.display = "none";
     }
 
-    function requiredFields(){
+    function requiredFields() {
         if (noteTitle.value=="") {
             return false;
         } else {
             return true;
         }
     }
-        
+       
 
 
-export  {createNote, removeForm, requiredFields };
+
+export  {createNote, removeForm, requiredFields};

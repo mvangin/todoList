@@ -79,16 +79,52 @@ function displayNotes(project) {
 
     project.toDo.forEach((item) => {
         const newNote = document.createElement("div");
+        const row1 = document.createElement("div");
+        const row2 = document.createElement("div");
         const title = document.createElement('div');
         const dueDate = document.createElement('div');
-        title.textContent = item.title;
-        title.classList.add("noteContentTitle");
-        dueDate.textContent = item.dueDate;
+        const descrip = document.createElement('div');
+        const priority = document.createElement('div')
+        const removeNoteButton = document.createElement("button");
+        removeNoteButton.textContent = "Remove Note";
+        removeNoteButton.classList.add("removeNoteButton");
+        
 
-        newNote.appendChild(title);
-        newNote.appendChild(dueDate);
+        title.textContent = item.title;
+        title.classList.add("noteContent");
+        title.setAttribute("id", "noteTitleContent");
+
+        dueDate.textContent = "Due by: " + item.dueDate;
+        dueDate.classList.add("noteContent");
+
+        descrip.textContent = "Description: " + item.descrip;
+
+        priority.textContent = "priority: " + item.priority;
+        priority.classList.add("noteContent");
+
+
+        row1.appendChild(title);
+        row1.appendChild(dueDate);
+        row1.appendChild(priority);
+        row1.appendChild(removeNoteButton);
+
+
+        row2.appendChild(descrip);
+        row1.classList.add("noteHead");
+        row2.classList.add("descrip");
+
+
         newNote.classList.add("newNote");
+        newNote.appendChild(row1);
+        newNote.appendChild(row2);
+
         noteDiv.appendChild(newNote);
+
+        newNote.addEventListener("click", () => {
+            row2.style.display == "" ? row2.style.display = "flex" : row2.style.display = "";
+        })
+
+  
     });
 }
 
