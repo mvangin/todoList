@@ -88,7 +88,10 @@ function displayNotes(project) {
         const removeNoteButton = document.createElement("button");
         removeNoteButton.textContent = "Remove Note";
         removeNoteButton.classList.add("removeNoteButton");
-        
+        removeNoteButton.dataset.projectIndex = item.projectID;
+        removeNoteButton.dataset.noteindex = item.noteID;
+
+
 
         title.textContent = item.title;
         title.classList.add("noteContent");
@@ -124,12 +127,33 @@ function displayNotes(project) {
             row2.style.display == "" ? row2.style.display = "flex" : row2.style.display = "";
         })
 
-  
+    });
+    removeNoteButtons();
+}
+
+function removeNoteButtons() {
+    const removeNoteButtons = document.querySelectorAll(".removeNoteButton");
+    let index = 0;
+    removeNoteButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            projectLibrary.forEach(projItem => {
+                if (button.dataset.projectIndex == projItem.projectID.toString()) {
+                    projItem.toDo.forEach(noteItem => {
+                        if (noteItem.noteID.toString() == button.dataset.noteindex) {
+                            projItem.toDo.splice(projItem.toDo.indexOf(noteItem.projectTitle),1);
+                            displayNotes(getCurrentProject());
+                        }
+                    })
+                }
+            })
+        });
     });
 }
 
-function requiredProjFields(projectTitleInput){
-    if (projectTitleInput=="") {
+
+
+function requiredProjFields(projectTitleInput) {
+    if (projectTitleInput == "") {
         return false;
     } else {
         return true;

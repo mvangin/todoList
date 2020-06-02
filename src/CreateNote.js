@@ -20,11 +20,9 @@ import {addToDo, getCurrentProject, displayNotes} from  "./CreateProject.js";
 
     function Note(title, descrip = "", dueDate = "", priority = "none") {
         noteID++;
-        let projectID = getCurrentProject();
-        const lastID = () => {
-            return lastID;
-        }
-        return { title, descrip, dueDate, priority, projectID}
+        let projectID = getCurrentProject().projectID;
+
+        return { title, descrip, dueDate, priority, projectID, noteID}
     }
 
     function createNote() {
