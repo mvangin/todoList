@@ -31,17 +31,18 @@ body {
 
 .noteForm {
     text-align:center;
-    width: 330px;
+    width: 350px;
     background: grey;
     margin: 100px auto;
     padding: 20px;
+    padding-right: 40px;
 }
 
 
 
 #noteTitle {
-    width: 100%;
-    height: 2rem;
+width: 350px;
+height: 20px;
 
 }
 
@@ -51,18 +52,19 @@ body {
 }
 
 #noteDueDate {
-width: 150px;
+    width: 150px;
 }
 
 #notePriority {
     width: 150px;
+    padding: 2px;
 
 
 }
 
 #noteDescrip {
-    width: 100%;
-    height: 4rem;
+    width: 350px;
+    height: 50px;
 }
 
 
@@ -77,12 +79,10 @@ ul {
 
 .newNote {
     background: yellow;
-    display: flex;
-    width: 300px;
-    justify-content: space-between;
-    align-items: flex-start;
+    width: 80%;
     padding: 20px;
     margin: 10px;
+
 }
 
 .newProject {
@@ -97,6 +97,7 @@ ul {
 
 .noteForm {
     display: none;
+    text-align: center;
 }
 
 .projectForm {
@@ -128,8 +129,9 @@ ul {
  height: 100vh;
 }
 
-.noteContentTitle {
-    max-width: 200px;
+.noteContent {
+    width: 30%;
+    padding: 10px;
 }
 
 .newProjectButton {
@@ -154,15 +156,15 @@ ul {
 }
 
 .projectButtonWrapper {
-width: 300px;
-margin: 20px auto;
-text-align: center;
+    width: 300px;
+    margin: 20px auto;
+    text-align: center;
 }
 
 
 
 .notesButtons {
-padding: 20px;
+    padding: 20px;
 
 }
 
@@ -179,5 +181,24 @@ padding: 20px;
     border: 1px solid grey;
     border-radius: 5px;
     font-size: 1.5rem;
-
 }
+
+.noteHead {
+    display: flex;
+    flex: 2 1 1 1;
+    justify-content: space-between;
+}
+
+
+.descrip {
+    margin-top: 10px;
+    background: rgb(230, 226, 8);
+    padding:20px;
+    display: none;
+    justify-content: space-between; 
+}
+
+.noteInput {
+    margin: 10px;
+}
+
