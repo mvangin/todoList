@@ -87,10 +87,12 @@ function displayProjects() {
             const projDivs = document.querySelectorAll(".wrapperProject");
             projDivs.forEach(item => {
                 item.style.background = "";
-                projectController.setCurrentProject(project);
-                wrapperProject.style.background = "rgba(0,0,0,.2)";
-                displayNotes(project);
             });
+            
+            projectController.setCurrentProject(project);
+            wrapperProject.style.background = "rgba(0,0,0,.2)";
+            displayNotes(project);
+
 
         })
 
