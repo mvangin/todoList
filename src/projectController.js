@@ -4,17 +4,22 @@ import { displayNotes} from "./ui-notes.js";
 
 const projectController = (() => {
 
-    let projectLibrary = [];
+    let projectLibrary; 
+
+    if (localStorage.getItem("storedLibrary") ) {
+        projectLibrary = JSON.parse(localStorage.getItem("storedLibrary"))
+    } else {
+        projectLibrary = [];
+
+    }
+
     let currentProject;
-
-
-    
 
     function setDefaultProject() {
         setCurrentProject(projectLibrary[0]);
         displayProjects();
         displayNotes(projectLibrary[0]);
-        const projDiv = document.querySelector(".newProject");
+        const projDiv = document.querySelector(".wrapperProject");
         projDiv.style.background = "rgba(0,0,0,.2)";
     }
 
@@ -37,14 +42,17 @@ const projectController = (() => {
 
     function addProject(currentProject) {
         projectLibrary.push(currentProject);
+        localStorage.setItem("storedLibrary", JSON.stringify(projectLibrary));
         console.log(projectLibrary);
+
 
     }
 
     function removeProject(e) {
         let index = e.target.dataset.projectID;
         projectLibrary.splice(index, 1);
-        localStorage.setItem('projects', JSON.stringify(projectLibrary));
+        localStorage.setItem("storedLibrary", JSON.stringify(projectLibrary));
+
 
     }
 

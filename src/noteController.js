@@ -2,8 +2,6 @@ import projectController from "./projectController.js";
 import {removeForm, requiredFields, displayNotes } from "./ui-notes.js"
 import {getAllProjects} from "./projectController.js"
 
-
-
 const noteTitle = document.querySelector("#noteTitle");
 const noteDescrip = document.querySelector("#noteDescrip");
 const noteDueDate = document.querySelector("#noteDueDate");
@@ -21,12 +19,13 @@ function createNote() {
 
 function addNote(newNote, project) {
     project.toDo.push(newNote)
-
+    localStorage.setItem("storedLibrary", JSON.stringify(projectController.getAllProjects()))
 }
 
 function removeNote(e) {
     let index = e.target.dataset.noteID;
     projectController.getCurrentProject().toDo.splice(index, 1);
+    localStorage.setItem("storedLibrary", JSON.stringify(projectController.getAllProjects()))
     displayNotes(projectController.getCurrentProject());
 
 }

@@ -1,4 +1,4 @@
-import {displayNotes} from "./ui-notes.js"
+import { displayNotes } from "./ui-notes.js"
 import projectController from "./projectController.js"
 
 
@@ -20,6 +20,8 @@ submitProject.addEventListener("click", (e) => {
     if (requiredProjFields(projectTitleInput.value)) {
         const project = projectController.newProject(projectTitleInput.value);
         projectController.addProject(project);
+        projectController.setCurrentProject(project);
+        displayNotes(project);
         displayProjects();
         clearProject();
         removeProjectForm()
@@ -56,8 +58,8 @@ function displayProjects() {
         const removeProjectButton = document.createElement("button");
         const removeButtonDiv = document.createElement("div");
         const projectTitleDiv = document.createElement("div");
-        const wrapper = document.createElement("div");
-       
+        const wrapperProject = document.createElement("div");
+
         projectTitleDiv.textContent = project.projectTitle;
         projectTitleDiv.dataset.projectID = projectID;
         projectTitleDiv.classList = "projectTitleDiv";
@@ -67,28 +69,32 @@ function displayProjects() {
         removeProjectButton.dataset.projectID = projectID;
         removeButtonDiv.appendChild(removeProjectButton);
 
-        wrapper.style.display = "flex";
-        wrapper.classList.add("newProject");
-        wrapper.appendChild(projectTitleDiv);
+        wrapperProject.style.display = "flex";
+        wrapperProject.classList.add("wrapperProject");
+        wrapperProject.appendChild(projectTitleDiv);
 
-        projectDiv.appendChild(wrapper);
+        projectDiv.appendChild(wrapperProject);
 
-        if (projectID!=0){
-            wrapper.appendChild(removeProjectButton);
-        } 
+        if (projectController.getCurrentProject() == project) {
+            wrapperProject.style.background = "rgba(0,0,0,.2)";
+        }
+
+        if (projectID != 0) {
+            wrapperProject.appendChild(removeProjectButton);
+        }
 
         projectTitleDiv.addEventListener("click", () => {
-            const projDivs = document.querySelectorAll(".newProject");
+            const projDivs = document.querySelectorAll(".wrapperProject");
             projDivs.forEach(item => {
                 item.style.background = "";
                 projectController.setCurrentProject(project);
-                wrapper.style.background = "rgba(0,0,0,.2)";
+                wrapperProject.style.background = "rgba(0,0,0,.2)";
                 displayNotes(project);
             });
 
         })
 
-       removeProjectButton.addEventListener("click", (e) => {
+        removeProjectButton.addEventListener("click", (e) => {
             projectController.removeProject(e);
             projectController.setDefaultProject();
         });
@@ -106,4 +112,4 @@ function requiredProjFields(projectTitleInput) {
     }
 }
 
-export {displayProjects, requiredProjFields};
+export { displayProjects, requiredProjFields };

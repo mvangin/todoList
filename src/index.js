@@ -1,9 +1,12 @@
 
 import projectController from "./projectController.js"
 
-    let defaultProject = projectController.newProject("Default_project");
+if (!localStorage.getItem("storedLibrary") ) {
+    let defaultProject = projectController.newProject("Default project");
     projectController.addProject(defaultProject)
-    projectController.setDefaultProject();
+}
+
+projectController.setDefaultProject();
 
 
 
