@@ -3,16 +3,42 @@ body {
     margin: 0px;
 }
 
-.bg-modalNotes {
-    top: 0;
-    left: 0;
-    width: 100%;
+.contentWrapper {
+    display: flex;
+}
+
+.projectSideBar{
+    width: 20%;
+    min-width: 250px;
+    border-right: 10px solid grey;
     height: 100vh;
-    background: rgb(0,0,0,.8);
-    display: none;
-    position: fixed;
-    justify-content: center;
-    align-items: center;
+}
+
+.newProjectButton {
+    background: rgb(245, 241, 241);
+    width: 200px;
+    margin: 20px 20px;
+    padding: 10px;
+    border: 2px solid rgb(153, 152, 152);
+    border-radius: 10px;
+    font-size: 1.3rem;
+}
+
+.noteWrapper {
+    background: rgba(38, 38, 224, 0.61);
+    width: 80%;
+    height: 100vh;
+   }
+
+
+.newNoteButton {
+    background: rgb(245, 241, 241);
+    width: 200px;
+    margin: 20px 20px;
+    padding: 10px;
+    border: 2px solid rgb(153, 152, 152);
+    border-radius: 10px;
+    font-size: 1.3rem;
 }
 
 .bg-modalProjects {
@@ -27,7 +53,69 @@ body {
     align-items: center;
 }
 
+.projectForm {
+    display: none;
+}
 
+.projectTitleInput {
+    display: "block";
+    padding: 1.5rem;
+    font-size: 2rem;
+}
+
+.projectTitleDiv {
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+}
+
+.projectButtonWrapper {
+    width: 300px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+
+#submitProject {
+    padding: 20px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    font-size: 1.5rem;
+}
+
+
+#cancelProject {
+    padding: 20px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    font-size: 1.5rem;
+}
+
+.removeProjectButton {
+    color: red;
+}
+.wrapperProject {
+    width: 180px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin: 5px;
+    margin-left: 30px;
+    font-size: 1.5rem;
+}
+
+
+.bg-modalNotes {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgb(0,0,0,.8);
+    display: none;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+}
 
 .noteForm {
     text-align:center;
@@ -37,7 +125,6 @@ body {
     padding: 20px;
     padding-right: 40px;
 }
-
 
 
 #noteTitle {
@@ -85,15 +172,6 @@ ul {
 
 }
 
-.wrapperProject {
-    width: 180px;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    margin: 5px;
-    margin-left: 30px;
-    font-size: 1.5rem;
-}
 
 
 .noteForm {
@@ -101,94 +179,21 @@ ul {
     text-align: center;
 }
 
-.projectForm {
-    display: none;
-}
-
-
-.projectTitleInput {
-    display: "block";
-    padding: 1.5rem;
-    font-size: 2rem;
-}
-
-.contentWrapper {
-    display: flex;
-}
-
-.projectSideBar{
- width: 20%;
- min-width: 250px;
- border-right: 10px solid grey;
- height: 100vh;
-
-}
-
-.noteWrapper {
- background: rgba(38, 38, 224, 0.61);
- width: 80%;
- height: 100vh;
-}
 
 .noteContent {
     width: 30%;
     padding: 10px;
 }
 
-.newProjectButton {
-    background: rgb(245, 241, 241);
-    width: 200px;
-    margin: 20px 20px;
-    padding: 10px;
-    border: 2px solid rgb(153, 152, 152);
-    border-radius: 10px;
-    font-size: 1.3rem;
-
-}
-
-.newNoteButton {
-    background: rgb(245, 241, 241);
-    width: 200px;
-    margin: 20px 20px;
-    padding: 10px;
-    border: 2px solid rgb(153, 152, 152);
-    border-radius: 10px;
-    font-size: 1.3rem;
-}
-
-.projectButtonWrapper {
-    width: 300px;
-    margin: 20px auto;
-    text-align: center;
-}
-
-
-
 .notesButtons {
     padding: 20px;
 
-}
-
-#submitProject {
-    padding: 20px;
-    border: 1px solid grey;
-    border-radius: 5px;
-    font-size: 1.5rem;
-}
-
-
-#cancelProject {
-    padding: 20px;
-    border: 1px solid grey;
-    border-radius: 5px;
-    font-size: 1.5rem;
 }
 
 .noteHead {
     display: flex;
     justify-content: space-between;
 }
-
 
 .descrip {
     margin-top: 10px;
@@ -202,17 +207,10 @@ ul {
     margin: 10px;
 }
 
-.removeProjectButton {
-    color: red;
-}
+
 
 .removeNoteButton {
     color: red;
     flex: flex-end;
 }
 
-.projectTitleDiv {
-    text-align: center;
-    padding: 10px;
-    width: 100%;
-}
